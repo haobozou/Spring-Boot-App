@@ -1,6 +1,7 @@
 package com.example.app;
 
 import java.util.Map;
+import java.util.Optional;
 import java.util.function.Supplier;
 
 public class ActivityFactory {
@@ -13,14 +14,10 @@ public class ActivityFactory {
           Day.SATURDAY, SaturdayActivity::new,
           Day.SUNDAY, SundayActivity::new);
 
-  public static AbstractActivity findAction(String string) {
-    Day day = Day.toDay(string);
+  public static Optional<AbstractActivity> findAction(String string) {
+    var day = Day.toDay(string);
 
-    if (day == null) {
-      return null;
-    }
-
-    return activities.get(day).get();
+    return day.map(activities::get).map(Supplier::get);
   }
 
   private static class MondayActivity extends AbstractActivity {
