@@ -28,4 +28,9 @@ spotless {
         target("src/**/*.java")
         googleJavaFormat()
     }
+
+    kotlinGradle {
+        target("**/*.kts")
+        ktlint()
+    }
 }
