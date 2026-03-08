@@ -10,18 +10,18 @@ public class SpringBootAppApplication {
   public static void main(String[] args) {
     try (var scanner = new Scanner(System.in)) {
       do {
-        String input = scanner.nextLine();
+        var input = scanner.nextLine();
         if (Objects.equals(input, "quit")) {
           break;
         }
 
-        AbstractActivity activity = ActivityFactory.findAction(input);
-        if (activity == null) {
+        var activity = ActivityFactory.findAction(input);
+        if (activity.isEmpty()) {
           System.out.println("No such option");
           continue;
         }
 
-        activity.doAction();
+        activity.get().doAction();
       } while (true);
     }
 
