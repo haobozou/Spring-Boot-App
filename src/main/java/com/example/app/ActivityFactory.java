@@ -3,13 +3,14 @@ package com.example.app;
 import java.util.Map;
 
 public class ActivityFactory {
-  private static final Map<Day, AbstractActivity> activities = Map.ofEntries(
-      Map.entry(Day.MONDAY, new MondayActivity()),
-      Map.entry(Day.TUESDAY, new TuesdayActivity()),
-      Map.entry(Day.WEDNESDAY, new WednesdayActivity()),
-      Map.entry(Day.FRIDAY, new FridayActivity()),
-      Map.entry(Day.SATURDAY, new SaturdayActivity()),
-      Map.entry(Day.SUNDAY, new SundayActivity()));
+  private static final Map<Day, AbstractActivity> activities =
+      Map.ofEntries(
+          Map.entry(Day.MONDAY, new MondayActivity()),
+          Map.entry(Day.TUESDAY, new TuesdayActivity()),
+          Map.entry(Day.WEDNESDAY, new WednesdayActivity()),
+          Map.entry(Day.FRIDAY, new FridayActivity()),
+          Map.entry(Day.SATURDAY, new SaturdayActivity()),
+          Map.entry(Day.SUNDAY, new SundayActivity()));
 
   public static AbstractActivity findAction(String string) {
     Day day = Day.toDay(string);
