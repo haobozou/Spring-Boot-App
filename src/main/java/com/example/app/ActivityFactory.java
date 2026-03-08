@@ -5,7 +5,7 @@ import java.util.Optional;
 import java.util.function.Supplier;
 
 public class ActivityFactory {
-  private static final Map<Day, Supplier<AbstractActivity>> activities =
+  private static final Map<Day, Supplier<AbstractActivity>> activitySuppliers =
       Map.of(
           Day.MONDAY, MondayActivity::new,
           Day.TUESDAY, TuesdayActivity::new,
@@ -17,7 +17,7 @@ public class ActivityFactory {
   public static Optional<AbstractActivity> findAction(String string) {
     var day = Day.toDay(string);
 
-    return day.map(activities::get).map(Supplier::get);
+    return day.map(activitySuppliers::get).map(Supplier::get);
   }
 
   private static class MondayActivity extends AbstractActivity {
