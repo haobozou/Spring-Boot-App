@@ -2,6 +2,7 @@ package com.example.app;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 public enum Day {
   MONDAY("MONDAY", "MON"),
@@ -20,10 +21,9 @@ public enum Day {
     this.abbreviation = abbreviation;
   }
 
-  public static Day toDay(String string) {
+  public static Optional<Day> toDay(String string) {
     return Arrays.stream(Day.values())
         .filter(day -> List.of(day.abbreviation, day.fullWord).contains(string.toUpperCase()))
-        .findFirst()
-        .orElse(null);
+        .findFirst();
   }
 }
