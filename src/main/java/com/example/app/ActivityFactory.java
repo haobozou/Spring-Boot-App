@@ -1,16 +1,17 @@
 package com.example.app;
 
 import java.util.Map;
+import java.util.function.Supplier;
 
 public class ActivityFactory {
-  private static final Map<Day, AbstractActivity> activities =
-      Map.ofEntries(
-          Map.entry(Day.MONDAY, new MondayActivity()),
-          Map.entry(Day.TUESDAY, new TuesdayActivity()),
-          Map.entry(Day.WEDNESDAY, new WednesdayActivity()),
-          Map.entry(Day.FRIDAY, new FridayActivity()),
-          Map.entry(Day.SATURDAY, new SaturdayActivity()),
-          Map.entry(Day.SUNDAY, new SundayActivity()));
+  private static final Map<Day, Supplier<AbstractActivity>> activities =
+      Map.of(
+          Day.MONDAY, MondayActivity::new,
+          Day.TUESDAY, TuesdayActivity::new,
+          Day.WEDNESDAY, WednesdayActivity::new,
+          Day.FRIDAY, FridayActivity::new,
+          Day.SATURDAY, SaturdayActivity::new,
+          Day.SUNDAY, SundayActivity::new);
 
   public static AbstractActivity findAction(String string) {
     Day day = Day.toDay(string);
@@ -19,7 +20,7 @@ public class ActivityFactory {
       return null;
     }
 
-    return activities.get(day);
+    return activities.get(day).get();
   }
 
   private static class MondayActivity extends AbstractActivity {
