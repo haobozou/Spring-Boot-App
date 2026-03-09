@@ -3,11 +3,12 @@
 ### Prerequisites
 
 - Java 25
+- Gradle 9
 
 ### Installation
 
 ```bash
-./gradlew build
+gradle build
 ```
 
 ### Usage
@@ -19,7 +20,7 @@ java -jar build/libs/app.jar
 ### Formatting
 
 ```bash
-./gradlew spotlessApply
+gradle format
 ```
 
 ## Features
