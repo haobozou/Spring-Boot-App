@@ -6,7 +6,7 @@ plugins {
 
 gitHooks {
     preCommit {
-        tasks("spotlessCheck", "check")
+        tasks("check")
     }
 
     commitMsg {
