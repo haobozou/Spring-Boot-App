@@ -33,4 +33,9 @@ spotless {
         target("**/*.kts")
         ktlint()
     }
+
+    flexmark {
+        target("**/*.md")
+        flexmark()
+    }
 }

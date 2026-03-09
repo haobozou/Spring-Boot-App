@@ -26,3 +26,4 @@ java -jar build/libs/app.jar
 
 - Input a day of the week (e.g., "Monday", "mon", etc., case-insensitive) and receive the corresponding schedule for that day (Thursday not included).
 - Exit the program by entering "quit".
+
