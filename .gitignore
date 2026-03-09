@@ -3,5 +3,9 @@
 .vscode/
 bin/
 build/
+gradle/
 
+*.iml
 .DS_Store
+gradlew
+gradlew.bat
