@@ -39,3 +39,7 @@ spotless {
         flexmark()
     }
 }
+
+tasks.register("format") {
+    dependsOn("spotlessApply")
+}
